@@ -17,16 +17,19 @@ app.options('*', cors(cors_options));
 var api = express.Router();
 
 api.param('collectionName', function(req, res, next, collectionName){
-  console.log('collection');
   req.collection = db.collection(collectionName)
   return next()
 })
 
 api.post('/:collectionName', function (req, res) {
   jsonBody(req, function (error, body) {
+    if (!(body instanceof Object)) {
+      body = {"content": body};
+    }
     body.srv_timestamp = Date.now();
+    console.log(body);
     req.collection.insert(body, {}, function(e, results){
-        console.log('got insert');
+        console.log('inserted');
         if (e) { console.error(e); next(e);}
         else res.send(results);
     });
