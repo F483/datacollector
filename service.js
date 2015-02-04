@@ -31,7 +31,8 @@ api.post('/:collectionName', function (req, res) {
     req.collection.insert(body, {}, function(e, results){
         console.log('inserted');
         if (e) { console.error(e); next(e);}
-        else res.send(results);
+        else res.json({srv_timestamp: body.srv_timestamp,
+                       _id: results[0]._id})
     });
   });
 });
