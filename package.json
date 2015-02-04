@@ -1,0 +1,19 @@
+{
+  "name": "datacollector",
+  "version": "0.0.0",
+  "description": "Universal data collector service.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Mizrahi",
+  "license": "ISC",
+  "dependencies": {
+    "body": "^4.5.0",
+    "cors": "^2.5.2",
+    "express": "^4.10.6",
+    "morgan": "^1.5.1",
+    "mongoskin": "",
+    "mime-db": ""
+  }
+}
